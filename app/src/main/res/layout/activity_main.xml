@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/camera_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Top camera controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp">
+
+            <TextView
+                android:id="@+id/formatBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_round_panel_2"
+                android:gravity="center"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="HEIC"
+                android:textColor="@color/camera_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+            <ImageButton
+                android:id="@+id/flashButton"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_round_panel_2"
+                android:contentDescription="Flash"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_flash" />
+        </LinearLayout>
+
+        <!-- Viewfinder -->
+        <FrameLayout
+            android:id="@+id/viewfinder"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#171A1F">
+
+            <SurfaceView
+                android:id="@+id/previewSurface"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:id="@+id/focusReticle"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_focus_ring"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/zoomBadge"
+                android:layout_width="56dp"
+                android:layout_height="36dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/bg_round_panel_2"
+                android:gravity="center"
+                android:text="1.0×"
+                android:textColor="@color/camera_text"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <!-- Capability / mode strip -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <FrameLayout
+                android:id="@+id/resolutionBadge"
+                android:layout_width="76dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_round_panel_2">
+
+                <TextView
+                    android:id="@+id/resolutionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="48 MP"
+                    android:textColor="@color/camera_text"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/qualityText"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="EV"
+                android:textColor="@color/camera_ev_auto"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Bottom camera controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp">
+
+            <FrameLayout
+                android:id="@+id/galleryButton"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/bg_round_panel_2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="▧"
+                    android:textColor="@color/camera_muted"
+                    android:textSize="25sp" />
+            </FrameLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/shutterOuter"
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:background="@drawable/bg_shutter_outer"
+                android:padding="7dp">
+
+                <View
+                    android:id="@+id/shutterButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_shutter" />
+            </FrameLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/switchCameraButton"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/bg_round_panel_2"
+                android:gravity="center"
+                android:text="↻"
+                android:textColor="@color/camera_text"
+                android:textSize="28sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Compact exposure panel: A - slider + value -->
+    <LinearLayout
+        android:id="@+id/exposurePanel"
+        android:layout_width="236dp"
+        android:layout_height="44dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="142dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_round_panel"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="4dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/exposureAuto"
+            android:layout_width="20dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="@color/camera_ev_auto"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/exposureMinus"
+            android:layout_width="16dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="−"
+            android:textColor="@color/camera_text"
+            android:textSize="16sp" />
+
+        <SeekBar
+            android:id="@+id/exposureSeekBar"
+            android:layout_width="112dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:max="20"
+            android:progress="10" />
+
+        <TextView
+            android:id="@+id/exposurePlus"
+            android:layout_width="16dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="@color/camera_text"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/exposureValueText"
+            android:layout_width="42dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="AUTO"
+            android:textColor="@color/camera_muted"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/exposureClose"
+            android:layout_width="20dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="×"
+            android:textColor="@color/camera_muted"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</FrameLayout>

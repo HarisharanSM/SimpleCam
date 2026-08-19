@@ -1,0 +1,36 @@
+# Build artifacts
+/build
+**/build
+*.apk
+*.aar
+*.dex
+*.class
+*.flat
+
+# Gradle
+.gradle/
+gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# IDE - Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+.externalNativeBuild/
+.cxx/
+captures/
+
+# Local configuration
+local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+/app/build/reports
+/app/build/test-results
+
+# Log files
+*.log

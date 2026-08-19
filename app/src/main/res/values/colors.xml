@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="camera_bg">#0B0D10</color>
+    <color name="camera_panel">#14171B</color>
+    <color name="camera_panel_2">#1D2127</color>
+    <color name="camera_text">#F5F7FA</color>
+    <color name="camera_muted">#A9B0BA</color>
+    <color name="camera_accent">#FFFFFF</color>
+    <color name="camera_warning">#FFD166</color>
+    <color name="camera_ev_auto">#E53935</color>
+</resources>
